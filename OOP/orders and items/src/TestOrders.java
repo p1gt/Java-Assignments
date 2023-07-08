@@ -38,5 +38,14 @@ public class TestOrders {
         order3.display();
         order4.display();
         order5.display();
+
+        // test CoffeeKiosk class
+        CoffeeKiosk kiosk = new CoffeeKiosk();
+        kiosk.addMenuItem("drip coffee", 1.50);
+        kiosk.addMenuItem("cappuccino", 3.50);
+        kiosk.addMenuItem("latte", 4.0);
+        kiosk.addMenuItem("bagel", 2.0);
+        kiosk.addMenuItem("muffin", 2.5);
+        kiosk.newOrder();
     }
 }
