@@ -1,0 +1,12 @@
+* {
+    text-align: center;
+    text-decoration: none;
+    font-family: cursive;
+}
+a[href] {
+    color: green;
+}
+
+a[href="/clear"] {
+    color: red;
+}
