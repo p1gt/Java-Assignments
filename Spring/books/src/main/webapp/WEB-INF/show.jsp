@@ -12,7 +12,6 @@
 	<title><c:out value="${book.id}"/></title>
 </head>
 <body>
-	<a></a>
 	<h1><c:out value="${book.title}"/></h1>
 	<p>description: <c:out value="${book.description}"/></p>
 	<p>language: <c:out value="${book.language}"/></p>

@@ -6,12 +6,26 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 public class BooksController {
     private final BookService service;
 
     public BooksController(BookService service) {
         this.service = service;
+    }
+
+    @GetMapping("/")
+    public String index() {
+        return "redirect:/books";
+    }
+
+    @RequestMapping("/books")
+    public String books(Model model) {
+        List<Book> books = service.allBooks();
+        model.addAttribute("books", books);
+        return "books.jsp";
     }
 
     @GetMapping("/books/{id}")
