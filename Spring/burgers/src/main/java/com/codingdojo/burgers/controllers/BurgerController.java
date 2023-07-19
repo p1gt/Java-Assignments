@@ -7,11 +7,10 @@ import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class BurgerController {
@@ -46,5 +45,33 @@ public class BurgerController {
             service.create(burger);
         }
         return "redirect:/burgers";
+    }
+
+    @GetMapping("/burgers/{id}/edit")
+    public String edit(@PathVariable("id") Long id, Model model) {
+        Optional<Burger> burger = service.get(id);
+        if (burger.isPresent()) {
+            model.addAttribute("burger", burger.get());
+            return "edit.jsp";
+        }
+        return "burgers.jsp";
+    }
+
+    @PutMapping("/burgers/{id}/update")
+    public String update(@PathVariable("id") Long id, @Valid @ModelAttribute("burger") Burger updatedBurger,
+                         BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            model.addAttribute("burger", updatedBurger);
+            return "edit.jsp";
+        }
+
+        Optional<Burger> existingBurger = service.get(id);
+        if (existingBurger.isPresent()) {
+            Burger burger = existingBurger.get();
+            model.addAttribute("burger", burger);
+            service.update(burger);
+            return "redirect:/burgers";
+        }
+        return "burgers.jsp";
     }
 }
