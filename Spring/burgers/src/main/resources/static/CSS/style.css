@@ -1,0 +1,74 @@
+* {
+    font-family: cursive;
+    text-align: center;
+    text-decoration: none;
+}
+
+table {
+    font-family: cursive;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+ form {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+ }
+input[type="submit"] {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+input[type="submit"]:hover {
+    background-color: #3e8e41;
+}
+label {
+    font-size: 18px;
+    margin-top: 20px;
+}
+input[type="text"], textarea, input[type="number"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #ccc;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 10px;
+}
+input[type="text"]:focus, textarea:focus, input[type="number"]:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
