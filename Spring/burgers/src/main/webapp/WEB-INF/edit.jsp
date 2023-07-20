@@ -8,8 +8,8 @@
 </head>
 <body>
 <h1>edit burger</h1>
-<form:form action="/burgers/${burger.id}/update" method="post" modelAttribute="burger">
-	<input type="hidden" name="_method" value="put">
+<form:form action="/burgers/update" method="post" modelAttribute="burger">
+	<input type="hidden" name="id" value="${burger.id}"/>
 	<p>
 		<form:label path="burgerName">burger name:</form:label>
 		<form:errors path="burgerName"/>

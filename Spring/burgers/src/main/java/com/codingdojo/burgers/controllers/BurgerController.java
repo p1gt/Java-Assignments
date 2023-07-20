@@ -58,13 +58,12 @@ public class BurgerController {
         }
     }
 
-    @PutMapping("/burgers/{id}/update")
+    @PostMapping("/burgers/update")
     public String update(@Valid @ModelAttribute("burger") Burger burger, BindingResult result) {
         if (result.hasErrors()) {
             return "edit.jsp";
-        } else {
-            service.update(burger);
         }
+        service.update(burger);
         return "redirect:/burgers";
     }
 }
