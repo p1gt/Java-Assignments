@@ -4,6 +4,7 @@ import com.codingdojo.burgers.models.Burger;
 import com.codingdojo.burgers.repositories.BurgerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -13,7 +14,7 @@ public class BurgerService {
     private final BurgerRepository repository;
 
     public List<Burger> allBurgers() {
-        return repository.findAll();
+        return (List<Burger>) repository.findAll();
     }
 
     public Optional<Burger> get(Long id) {

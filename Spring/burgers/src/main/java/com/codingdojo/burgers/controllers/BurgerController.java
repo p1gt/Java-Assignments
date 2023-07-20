@@ -53,25 +53,18 @@ public class BurgerController {
         if (burger.isPresent()) {
             model.addAttribute("burger", burger.get());
             return "edit.jsp";
+        } else {
+            return "redirect:/burgers";
         }
-        return "burgers.jsp";
     }
 
     @PutMapping("/burgers/{id}/update")
-    public String update(@PathVariable("id") Long id, @Valid @ModelAttribute("burger") Burger updatedBurger,
-                         BindingResult result, Model model) {
+    public String update(@Valid @ModelAttribute("burger") Burger burger, BindingResult result) {
         if (result.hasErrors()) {
-            model.addAttribute("burger", updatedBurger);
             return "edit.jsp";
-        }
-
-        Optional<Burger> existingBurger = service.get(id);
-        if (existingBurger.isPresent()) {
-            Burger burger = existingBurger.get();
-            model.addAttribute("burger", burger);
+        } else {
             service.update(burger);
-            return "redirect:/burgers";
         }
-        return "burgers.jsp";
+        return "redirect:/burgers";
     }
 }

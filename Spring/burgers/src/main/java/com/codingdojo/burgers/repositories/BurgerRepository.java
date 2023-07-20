@@ -7,10 +7,4 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface BurgerRepository extends CrudRepository<Burger, Long> {
-    List<Burger> findAll();
-
-    Optional<Burger> findById(Long id);
-
-    Burger save(Burger burger);
-}
+public interface BurgerRepository extends CrudRepository<Burger, Long> {}
