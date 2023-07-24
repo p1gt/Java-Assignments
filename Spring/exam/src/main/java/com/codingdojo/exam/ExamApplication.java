@@ -1,4 +1,4 @@
-package com.codingdojo.dojoninja;
+package com.codingdojo.exam;
 
 import org.apache.catalina.connector.Connector;
 import org.apache.coyote.ajp.AbstractAjpProtocol;
@@ -8,9 +8,9 @@ import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactor
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-public class DojoninjaApplication {
+public class ExamApplication {
     public static void main(String[] args) {
-        SpringApplication.run(DojoninjaApplication.class, args);
+        SpringApplication.run(ExamApplication.class, args);
     }
     @Bean
     public TomcatServletWebServerFactory servletContainer() {
